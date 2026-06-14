@@ -1,0 +1,10 @@
+.\objects\w25q32.o: diver\W25Q32.c
+.\objects\w25q32.o: diver\W25Q32.h
+.\objects\w25q32.o: .\start\stm32f10x.h
+.\objects\w25q32.o: .\start\core_cm3.h
+.\objects\w25q32.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\w25q32.o: .\start\system_stm32f10x.h
+.\objects\w25q32.o: .\start\stm32f10x_conf.h
+.\objects\w25q32.o: diver\SPI.h
+.\objects\w25q32.o: diver\delay.h
+.\objects\w25q32.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
