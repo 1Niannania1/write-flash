@@ -1,0 +1,11 @@
+#keil
+Objects/
+Listings/
+RTE/
+*.uvoptx
+project.uvguix.*
+DebugConfig/
+*.scvd
+
+#vscode
+.vscode/
