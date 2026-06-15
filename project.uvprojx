@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\start;.\diver</IncludePath>
+              <IncludePath>.\start;.\diver;.</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -473,6 +473,11 @@
               <FileName>W25Q32.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\diver\W25Q32.c</FilePath>
+            </File>
+            <File>
+              <FileName>DEBUG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\diver\DEBUG.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,21 +1,22 @@
 Dependencies for Project 'project', Target 'Target_1': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
-F (.\user\main.c)(0x6A2E8B13)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\user\main.c)(0x6A2FBE23)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\diver\delay.h)(0x69D377BF)
 I (.\start\stm32f10x.h)(0x4D783CB4)
 I (.\start\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
 I (.\start\system_stm32f10x.h)(0x4D783CAA)
 I (.\start\stm32f10x_conf.h)(0x69DF3330)
-I (.\diver\uart_it.h)(0x69EB18DE)
+I (.\diver\uart_it.h)(0x6A2FA664)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B348A)
-I (.\diver\W25Q32.h)(0x69F0C69C)
+I (.\diver\DEBUG.h)(0x6A2F9467)
+I (.\diver\W25Q32.h)(0x6A2FA8C3)
 I (.\diver\SPI.h)(0x69FCB21D)
-F (.\start\core_cm3.c)(0x4C0C587E)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
+F (.\start\core_cm3.c)(0x4C0C587E)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
 F (.\start\core_cm3.h)(0x4D523B58)()
 F (.\start\stm32f10x.h)(0x4D783CB4)()
-F (.\start\system_stm32f10x.c)(0x4D783CB0)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+F (.\start\system_stm32f10x.c)(0x4D783CB0)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
 I (start\stm32f10x.h)(0x4D783CB4)
 I (start\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
@@ -25,7 +26,7 @@ F (.\start\system_stm32f10x.h)(0x4D783CAA)()
 F (.\start\startup_stm32f10x_md.s)(0x4D783CD2)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include--pd "__UVISION_VERSION SETA 543" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
 F (.\start\stm32f10x_conf.h)(0x69DF3330)()
 F (.\diver\delay.h)(0x69D377BF)()
-F (.\diver\delay.c)(0x69D377C3)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
+F (.\diver\delay.c)(0x69D377C3)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (diver\delay.h)(0x69D377BF)
 I (.\start\stm32f10x.h)(0x4D783CB4)
 I (.\start\core_cm3.h)(0x4D523B58)
@@ -33,17 +34,18 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
 I (.\start\system_stm32f10x.h)(0x4D783CAA)
 I (.\start\stm32f10x_conf.h)(0x69DF3330)
 F (.\diver\key_interrupt.h)(0x69D7AC1A)()
-F (.\diver\uart_it.c)(0x69EB1918)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\uart_it.o --omf_browse .\objects\uart_it.crf --depend .\objects\uart_it.d)
-I (diver\uart_it.h)(0x69EB18DE)
+F (.\diver\uart_it.c)(0x6A2FA612)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\uart_it.o --omf_browse .\objects\uart_it.crf --depend .\objects\uart_it.d)
+I (diver\uart_it.h)(0x6A2FA664)
 I (.\start\stm32f10x.h)(0x4D783CB4)
 I (.\start\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
 I (.\start\system_stm32f10x.h)(0x4D783CAA)
 I (.\start\stm32f10x_conf.h)(0x69DF3330)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B348A)
-F (.\diver\uart_it.h)(0x69EB18DE)()
+I (diver\DEBUG.h)(0x6A2F9467)
+F (.\diver\uart_it.h)(0x6A2FA664)()
 F (.\diver\SPI.h)(0x69FCB21D)()
-F (.\diver\SPI.c)(0x69FCB1FC)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
+F (.\diver\SPI.c)(0x69FCB1FC)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
 I (diver\SPI.h)(0x69FCB21D)
 I (.\start\stm32f10x.h)(0x4D783CB4)
 I (.\start\core_cm3.h)(0x4D523B58)
@@ -51,8 +53,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
 I (.\start\system_stm32f10x.h)(0x4D783CAA)
 I (.\start\stm32f10x_conf.h)(0x69DF3330)
 I (diver\delay.h)(0x69D377BF)
-F (.\diver\W25Q32.c)(0x69FD7DA7)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\w25q32.o --omf_browse .\objects\w25q32.crf --depend .\objects\w25q32.d)
-I (diver\W25Q32.h)(0x69F0C69C)
+F (.\diver\W25Q32.c)(0x6A2FA897)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\start -I .\diver -I .-IC:\Keil_v5\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\w25q32.o --omf_browse .\objects\w25q32.crf --depend .\objects\w25q32.d)
+I (diver\W25Q32.h)(0x6A2FA8C3)
 I (.\start\stm32f10x.h)(0x4D783CB4)
 I (.\start\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9B3488)
@@ -61,3 +63,4 @@ I (.\start\stm32f10x_conf.h)(0x69DF3330)
 I (diver\SPI.h)(0x69FCB21D)
 I (diver\delay.h)(0x69D377BF)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9B348A)
+F (.\diver\DEBUG.h)(0x6A2F9467)()

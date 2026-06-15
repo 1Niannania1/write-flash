@@ -7,5 +7,6 @@
 .\objects\main.o: .\start\stm32f10x_conf.h
 .\objects\main.o: .\diver\uart_it.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: .\diver\DEBUG.h
 .\objects\main.o: .\diver\W25Q32.h
 .\objects\main.o: .\diver\SPI.h

@@ -22,10 +22,14 @@ Section Cross References
     startup_stm32f10x_md.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     delay.o(i.delay_ms) refers to delay.o(i.delay_us) for delay_us
     delay.o(i.delay_s) refers to delay.o(i.delay_ms) for delay_ms
-    uart_it.o(i.USART1_IRQHandler) refers to uart_it.o(.bss) for buffer
-    uart_it.o(i.USART1_IRQHandler) refers to uart_it.o(.data) for size
+    uart_it.o(i.USART1_IRQHandler) refers to uart_it.o(i.in_cycle_buffer) for in_cycle_buffer
+    uart_it.o(i.USART1_IRQHandler) refers to uart_it.o(.data) for interrupt_count
     uart_it.o(i.USART_SendString) refers to uart_it.o(i.USART_SendChar) for USART_SendChar
     uart_it.o(i.fputc) refers to uart_it.o(i.USART_SendChar) for USART_SendChar
+    uart_it.o(i.in_cycle_buffer) refers to uart_it.o(.data) for head
+    uart_it.o(i.in_cycle_buffer) refers to uart_it.o(.bss) for rx_buffer
+    uart_it.o(i.out_cycle_buffer) refers to uart_it.o(.data) for head
+    uart_it.o(i.out_cycle_buffer) refers to uart_it.o(.bss) for rx_buffer
     spi.o(i.SPI_start) refers to delay.o(i.delay_us) for delay_us
     spi.o(i.SPI_stop) refers to delay.o(i.delay_us) for delay_us
     w25q32.o(i.W25_eraser) refers to w25q32.o(i.W25_writeable) for W25_writeable
@@ -33,19 +37,28 @@ Section Cross References
     w25q32.o(i.W25_eraser) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
     w25q32.o(i.W25_eraser) refers to spi.o(i.SPI_stop) for SPI_stop
     w25q32.o(i.W25_eraser) refers to w25q32.o(i.W25_wait4nobusy) for W25_wait4nobusy
+    w25q32.o(i.W25_eraser_32) refers to w25q32.o(i.W25_writeable) for W25_writeable
+    w25q32.o(i.W25_eraser_32) refers to spi.o(i.SPI_start) for SPI_start
+    w25q32.o(i.W25_eraser_32) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
+    w25q32.o(i.W25_eraser_32) refers to spi.o(i.SPI_stop) for SPI_stop
+    w25q32.o(i.W25_eraser_32) refers to w25q32.o(i.W25_wait4nobusy) for W25_wait4nobusy
     w25q32.o(i.W25_init) refers to spi.o(i.SPI_init) for SPI_init
     w25q32.o(i.W25_read) refers to spi.o(i.SPI_start) for SPI_start
     w25q32.o(i.W25_read) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
     w25q32.o(i.W25_read) refers to spi.o(i.SPI_stop) for SPI_stop
     w25q32.o(i.W25_wait4nobusy) refers to spi.o(i.SPI_start) for SPI_start
     w25q32.o(i.W25_wait4nobusy) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
-    w25q32.o(i.W25_wait4nobusy) refers to printf3.o(i.__0printf$3) for __2printf
     w25q32.o(i.W25_wait4nobusy) refers to spi.o(i.SPI_stop) for SPI_stop
     w25q32.o(i.W25_write) refers to w25q32.o(i.W25_writeable) for W25_writeable
     w25q32.o(i.W25_write) refers to spi.o(i.SPI_start) for SPI_start
     w25q32.o(i.W25_write) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
     w25q32.o(i.W25_write) refers to spi.o(i.SPI_stop) for SPI_stop
     w25q32.o(i.W25_write) refers to w25q32.o(i.W25_wait4nobusy) for W25_wait4nobusy
+    w25q32.o(i.W25_write_32addrress) refers to w25q32.o(i.W25_writeable) for W25_writeable
+    w25q32.o(i.W25_write_32addrress) refers to spi.o(i.SPI_start) for SPI_start
+    w25q32.o(i.W25_write_32addrress) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
+    w25q32.o(i.W25_write_32addrress) refers to spi.o(i.SPI_stop) for SPI_stop
+    w25q32.o(i.W25_write_32addrress) refers to w25q32.o(i.W25_wait4nobusy) for W25_wait4nobusy
     w25q32.o(i.W25_writeable) refers to spi.o(i.SPI_start) for SPI_start
     w25q32.o(i.W25_writeable) refers to spi.o(i.SPI_weapbyte) for SPI_weapbyte
     w25q32.o(i.W25_writeable) refers to spi.o(i.SPI_stop) for SPI_stop
@@ -317,6 +330,8 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing main.o(.bss), (512 bytes).
+    Removing main.o(.data), (2 bytes).
     Removing core_cm3.o(.emb_text), (32 bytes).
     Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (164 bytes).
     Removing system_stm32f10x.o(.data), (20 bytes).
@@ -324,6 +339,9 @@ Removing Unused input sections from the image.
     Removing delay.o(i.delay_ms), (26 bytes).
     Removing delay.o(i.delay_s), (26 bytes).
     Removing uart_it.o(i.USART_SendString), (26 bytes).
+    Removing uart_it.o(i.out_cycle_buffer), (68 bytes).
+    Removing w25q32.o(i.W25_eraser_32), (50 bytes).
+    Removing w25q32.o(i.W25_write_32addrress), (76 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
     Removing ddiv.o(.text), (222 bytes).
@@ -331,7 +349,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-13 unused section(s) (total 1872 bytes) removed from the image.
+18 unused section(s) (total 2580 bytes) removed from the image.
 
 ==============================================================================
 
@@ -343,33 +361,33 @@ Image Symbol Table
 
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
@@ -417,28 +435,29 @@ Image Symbol Table
     SetSysClockTo72                          0x080002e1   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
     i.SystemInit                             0x080003c0   Section        0  system_stm32f10x.o(i.SystemInit)
     i.USART1_IRQHandler                      0x08000420   Section        0  uart_it.o(i.USART1_IRQHandler)
-    i.USART_Init                             0x08000470   Section        0  uart_it.o(i.USART_Init)
-    i.USART_SendChar                         0x08000588   Section        0  uart_it.o(i.USART_SendChar)
-    i.W25_eraser                             0x080005a4   Section        0  w25q32.o(i.W25_eraser)
-    i.W25_init                               0x080005de   Section        0  w25q32.o(i.W25_init)
-    i.W25_read                               0x080005e6   Section        0  w25q32.o(i.W25_read)
-    i.W25_wait4nobusy                        0x08000640   Section        0  w25q32.o(i.W25_wait4nobusy)
-    i.W25_write                              0x08000688   Section        0  w25q32.o(i.W25_write)
-    i.W25_writeable                          0x080006ea   Section        0  w25q32.o(i.W25_writeable)
-    i.__0printf$3                            0x080006fc   Section        0  printf3.o(i.__0printf$3)
-    i.__scatterload_copy                     0x0800071c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800072a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800072c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x0800073c   Section        0  printf3.o(i._printf_core)
-    _printf_core                             0x0800073d   Thumb Code   436  printf3.o(i._printf_core)
-    i.delay_us                               0x080008f4   Section        0  delay.o(i.delay_us)
-    i.fputc                                  0x08000926   Section        0  uart_it.o(i.fputc)
-    i.main                                   0x08000938   Section        0  main.o(i.main)
-    .constdata                               0x08000a08   Section        4  main.o(.constdata)
-    .data                                    0x20000000   Section        2  uart_it.o(.data)
-    .data                                    0x20000004   Section        4  stdout.o(.data)
-    .bss                                     0x20000008   Section      100  uart_it.o(.bss)
-    STACK                                    0x20000070   Section     1024  startup_stm32f10x_md.o(STACK)
+    i.USART_Init                             0x0800046c   Section        0  uart_it.o(i.USART_Init)
+    i.USART_SendChar                         0x08000584   Section        0  uart_it.o(i.USART_SendChar)
+    i.W25_eraser                             0x080005a0   Section        0  w25q32.o(i.W25_eraser)
+    i.W25_init                               0x080005da   Section        0  w25q32.o(i.W25_init)
+    i.W25_read                               0x080005e2   Section        0  w25q32.o(i.W25_read)
+    i.W25_wait4nobusy                        0x0800063c   Section        0  w25q32.o(i.W25_wait4nobusy)
+    i.W25_write                              0x08000672   Section        0  w25q32.o(i.W25_write)
+    i.W25_writeable                          0x080006d4   Section        0  w25q32.o(i.W25_writeable)
+    i.__0printf$3                            0x080006e8   Section        0  printf3.o(i.__0printf$3)
+    i.__scatterload_copy                     0x08000708   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08000716   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08000718   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x08000728   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x08000729   Thumb Code   436  printf3.o(i._printf_core)
+    i.delay_us                               0x080008e0   Section        0  delay.o(i.delay_us)
+    i.fputc                                  0x08000912   Section        0  uart_it.o(i.fputc)
+    i.in_cycle_buffer                        0x08000924   Section        0  uart_it.o(i.in_cycle_buffer)
+    i.main                                   0x0800097c   Section        0  main.o(i.main)
+    .constdata                               0x08000a50   Section        4  main.o(.constdata)
+    .data                                    0x20000000   Section       10  uart_it.o(.data)
+    .data                                    0x2000000c   Section        4  stdout.o(.data)
+    .bss                                     0x20000010   Section      512  uart_it.o(.bss)
+    STACK                                    0x20000210   Section     1024  startup_stm32f10x_md.o(STACK)
 
     Global Symbols
 
@@ -573,30 +592,34 @@ Image Symbol Table
     SPI_weapbyte                             0x080002a9   Thumb Code    44  spi.o(i.SPI_weapbyte)
     SystemInit                               0x080003c1   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
     USART1_IRQHandler                        0x08000421   Thumb Code    62  uart_it.o(i.USART1_IRQHandler)
-    USART_Init                               0x08000471   Thumb Code   254  uart_it.o(i.USART_Init)
-    USART_SendChar                           0x08000589   Thumb Code    22  uart_it.o(i.USART_SendChar)
-    W25_eraser                               0x080005a5   Thumb Code    58  w25q32.o(i.W25_eraser)
-    W25_init                                 0x080005df   Thumb Code     8  w25q32.o(i.W25_init)
-    W25_read                                 0x080005e7   Thumb Code    90  w25q32.o(i.W25_read)
-    W25_wait4nobusy                          0x08000641   Thumb Code    60  w25q32.o(i.W25_wait4nobusy)
-    W25_write                                0x08000689   Thumb Code    98  w25q32.o(i.W25_write)
-    W25_writeable                            0x080006eb   Thumb Code    18  w25q32.o(i.W25_writeable)
-    __0printf$3                              0x080006fd   Thumb Code    22  printf3.o(i.__0printf$3)
-    __1printf$3                              0x080006fd   Thumb Code     0  printf3.o(i.__0printf$3)
-    __2printf                                0x080006fd   Thumb Code     0  printf3.o(i.__0printf$3)
-    __scatterload_copy                       0x0800071d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800072b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800072d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    delay_us                                 0x080008f5   Thumb Code    50  delay.o(i.delay_us)
-    fputc                                    0x08000927   Thumb Code    16  uart_it.o(i.fputc)
-    main                                     0x08000939   Thumb Code   128  main.o(i.main)
-    Region$$Table$$Base                      0x08000a0c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000a2c   Number         0  anon$$obj.o(Region$$Table)
-    size                                     0x20000000   Data           1  uart_it.o(.data)
-    flag                                     0x20000001   Data           1  uart_it.o(.data)
-    __stdout                                 0x20000004   Data           4  stdout.o(.data)
-    buffer                                   0x20000008   Data         100  uart_it.o(.bss)
-    __initial_sp                             0x20000470   Data           0  startup_stm32f10x_md.o(STACK)
+    USART_Init                               0x0800046d   Thumb Code   254  uart_it.o(i.USART_Init)
+    USART_SendChar                           0x08000585   Thumb Code    22  uart_it.o(i.USART_SendChar)
+    W25_eraser                               0x080005a1   Thumb Code    58  w25q32.o(i.W25_eraser)
+    W25_init                                 0x080005db   Thumb Code     8  w25q32.o(i.W25_init)
+    W25_read                                 0x080005e3   Thumb Code    90  w25q32.o(i.W25_read)
+    W25_wait4nobusy                          0x0800063d   Thumb Code    54  w25q32.o(i.W25_wait4nobusy)
+    W25_write                                0x08000673   Thumb Code    98  w25q32.o(i.W25_write)
+    W25_writeable                            0x080006d5   Thumb Code    18  w25q32.o(i.W25_writeable)
+    __0printf$3                              0x080006e9   Thumb Code    22  printf3.o(i.__0printf$3)
+    __1printf$3                              0x080006e9   Thumb Code     0  printf3.o(i.__0printf$3)
+    __2printf                                0x080006e9   Thumb Code     0  printf3.o(i.__0printf$3)
+    __scatterload_copy                       0x08000709   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08000717   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08000719   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    delay_us                                 0x080008e1   Thumb Code    50  delay.o(i.delay_us)
+    fputc                                    0x08000913   Thumb Code    16  uart_it.o(i.fputc)
+    in_cycle_buffer                          0x08000925   Thumb Code    72  uart_it.o(i.in_cycle_buffer)
+    main                                     0x0800097d   Thumb Code   132  main.o(i.main)
+    Region$$Table$$Base                      0x08000a54   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000a74   Number         0  anon$$obj.o(Region$$Table)
+    head                                     0x20000000   Data           2  uart_it.o(.data)
+    tail                                     0x20000002   Data           2  uart_it.o(.data)
+    next                                     0x20000004   Data           2  uart_it.o(.data)
+    done                                     0x20000006   Data           1  uart_it.o(.data)
+    interrupt_count                          0x20000008   Data           2  uart_it.o(.data)
+    __stdout                                 0x2000000c   Data           4  stdout.o(.data)
+    rx_buffer                                0x20000010   Data         512  uart_it.o(.bss)
+    __initial_sp                             0x20000610   Data           0  startup_stm32f10x_md.o(STACK)
 
 
 
@@ -606,72 +629,73 @@ Memory Map of the image
 
   Image Entry point : 0x08000101
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00000a34, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000a84, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000a2c, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x08000000   0x08000000   0x000000ec   Data   RO          107    RESET               startup_stm32f10x_md.o
-    0x080000ec   0x080000ec   0x00000000   Code   RO          272  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080000ec   0x080000ec   0x00000004   Code   RO          538    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080000f0   0x080000f0   0x00000004   Code   RO          541    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO          543    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO          545    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080000f4   0x080000f4   0x00000008   Code   RO          546    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080000fc   0x080000fc   0x00000000   Code   RO          548    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080000fc   0x080000fc   0x00000000   Code   RO          550    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080000fc   0x080000fc   0x00000004   Code   RO          539    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x08000100   0x08000100   0x00000024   Code   RO          108  * .text               startup_stm32f10x_md.o
-    0x08000124   0x08000124   0x00000024   Code   RO          275    .text               mc_w.l(memseta.o)
-    0x08000148   0x08000148   0x0000002c   Code   RO          553    .text               mc_w.l(uidiv.o)
-    0x08000174   0x08000174   0x00000024   Code   RO          568    .text               mc_w.l(init.o)
-    0x08000198   0x08000198   0x000000d8   Code   RO          190    i.SPI_init          spi.o
-    0x08000270   0x08000270   0x0000001c   Code   RO          191    i.SPI_start         spi.o
-    0x0800028c   0x0800028c   0x0000001c   Code   RO          192    i.SPI_stop          spi.o
-    0x080002a8   0x080002a8   0x00000030   Code   RO          193    i.SPI_weapbyte      spi.o
-    0x080002d8   0x080002d8   0x00000008   Code   RO           61    i.SetSysClock       system_stm32f10x.o
-    0x080002e0   0x080002e0   0x000000e0   Code   RO           62    i.SetSysClockTo72   system_stm32f10x.o
-    0x080003c0   0x080003c0   0x00000060   Code   RO           64    i.SystemInit        system_stm32f10x.o
-    0x08000420   0x08000420   0x00000050   Code   RO          139    i.USART1_IRQHandler  uart_it.o
-    0x08000470   0x08000470   0x00000118   Code   RO          140    i.USART_Init        uart_it.o
-    0x08000588   0x08000588   0x0000001c   Code   RO          141    i.USART_SendChar    uart_it.o
-    0x080005a4   0x080005a4   0x0000003a   Code   RO          223    i.W25_eraser        w25q32.o
-    0x080005de   0x080005de   0x00000008   Code   RO          224    i.W25_init          w25q32.o
-    0x080005e6   0x080005e6   0x0000005a   Code   RO          225    i.W25_read          w25q32.o
-    0x08000640   0x08000640   0x00000048   Code   RO          226    i.W25_wait4nobusy   w25q32.o
-    0x08000688   0x08000688   0x00000062   Code   RO          227    i.W25_write         w25q32.o
-    0x080006ea   0x080006ea   0x00000012   Code   RO          228    i.W25_writeable     w25q32.o
-    0x080006fc   0x080006fc   0x00000020   Code   RO          366    i.__0printf$3       mc_w.l(printf3.o)
-    0x0800071c   0x0800071c   0x0000000e   Code   RO          580    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800072a   0x0800072a   0x00000002   Code   RO          581    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800072c   0x0800072c   0x0000000e   Code   RO          582    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800073a   0x0800073a   0x00000002   PAD
-    0x0800073c   0x0800073c   0x000001b8   Code   RO          373    i._printf_core      mc_w.l(printf3.o)
-    0x080008f4   0x080008f4   0x00000032   Code   RO          114    i.delay_us          delay.o
-    0x08000926   0x08000926   0x00000010   Code   RO          143    i.fputc             uart_it.o
-    0x08000936   0x08000936   0x00000002   PAD
-    0x08000938   0x08000938   0x000000d0   Code   RO            1    i.main              main.o
-    0x08000a08   0x08000a08   0x00000004   Data   RO            2    .constdata          main.o
-    0x08000a0c   0x08000a0c   0x00000020   Data   RO          578    Region$$Table       anon$$obj.o
-
-
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000a2c, Size: 0x00000008, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000a74, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08000a2c   0x00000002   Data   RW          145    .data               uart_it.o
-    0x20000002   0x08000a2e   0x00000002   PAD
-    0x20000004   0x08000a30   0x00000004   Data   RW          552    .data               mc_w.l(stdout.o)
+    0x08000000   0x08000000   0x000000ec   Data   RO          114    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x080000ec   0x00000000   Code   RO          326  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080000ec   0x080000ec   0x00000004   Code   RO          592    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080000f0   0x080000f0   0x00000004   Code   RO          595    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO          597    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO          599    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080000f4   0x080000f4   0x00000008   Code   RO          600    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080000fc   0x080000fc   0x00000000   Code   RO          602    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080000fc   0x080000fc   0x00000000   Code   RO          604    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080000fc   0x080000fc   0x00000004   Code   RO          593    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000100   0x08000100   0x00000024   Code   RO          115  * .text               startup_stm32f10x_md.o
+    0x08000124   0x08000124   0x00000024   Code   RO          329    .text               mc_w.l(memseta.o)
+    0x08000148   0x08000148   0x0000002c   Code   RO          607    .text               mc_w.l(uidiv.o)
+    0x08000174   0x08000174   0x00000024   Code   RO          622    .text               mc_w.l(init.o)
+    0x08000198   0x08000198   0x000000d8   Code   RO          226    i.SPI_init          spi.o
+    0x08000270   0x08000270   0x0000001c   Code   RO          227    i.SPI_start         spi.o
+    0x0800028c   0x0800028c   0x0000001c   Code   RO          228    i.SPI_stop          spi.o
+    0x080002a8   0x080002a8   0x00000030   Code   RO          229    i.SPI_weapbyte      spi.o
+    0x080002d8   0x080002d8   0x00000008   Code   RO           68    i.SetSysClock       system_stm32f10x.o
+    0x080002e0   0x080002e0   0x000000e0   Code   RO           69    i.SetSysClockTo72   system_stm32f10x.o
+    0x080003c0   0x080003c0   0x00000060   Code   RO           71    i.SystemInit        system_stm32f10x.o
+    0x08000420   0x08000420   0x0000004c   Code   RO          160    i.USART1_IRQHandler  uart_it.o
+    0x0800046c   0x0800046c   0x00000118   Code   RO          161    i.USART_Init        uart_it.o
+    0x08000584   0x08000584   0x0000001c   Code   RO          162    i.USART_SendChar    uart_it.o
+    0x080005a0   0x080005a0   0x0000003a   Code   RO          259    i.W25_eraser        w25q32.o
+    0x080005da   0x080005da   0x00000008   Code   RO          261    i.W25_init          w25q32.o
+    0x080005e2   0x080005e2   0x0000005a   Code   RO          262    i.W25_read          w25q32.o
+    0x0800063c   0x0800063c   0x00000036   Code   RO          263    i.W25_wait4nobusy   w25q32.o
+    0x08000672   0x08000672   0x00000062   Code   RO          264    i.W25_write         w25q32.o
+    0x080006d4   0x080006d4   0x00000012   Code   RO          266    i.W25_writeable     w25q32.o
+    0x080006e6   0x080006e6   0x00000002   PAD
+    0x080006e8   0x080006e8   0x00000020   Code   RO          420    i.__0printf$3       mc_w.l(printf3.o)
+    0x08000708   0x08000708   0x0000000e   Code   RO          634    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08000716   0x08000716   0x00000002   Code   RO          635    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08000718   0x08000718   0x0000000e   Code   RO          636    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08000726   0x08000726   0x00000002   PAD
+    0x08000728   0x08000728   0x000001b8   Code   RO          427    i._printf_core      mc_w.l(printf3.o)
+    0x080008e0   0x080008e0   0x00000032   Code   RO          121    i.delay_us          delay.o
+    0x08000912   0x08000912   0x00000010   Code   RO          164    i.fputc             uart_it.o
+    0x08000922   0x08000922   0x00000002   PAD
+    0x08000924   0x08000924   0x00000058   Code   RO          165    i.in_cycle_buffer   uart_it.o
+    0x0800097c   0x0800097c   0x000000d4   Code   RO            1    i.main              main.o
+    0x08000a50   0x08000a50   0x00000004   Data   RO            3    .constdata          main.o
+    0x08000a54   0x08000a54   0x00000020   Data   RO          632    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_ZI (Exec base: 0x20000008, Load base: 0x08000a34, Size: 0x00000468, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000a74, Size: 0x00000010, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008        -       0x00000064   Zero   RW          144    .bss                uart_it.o
-    0x2000006c   0x08000a34   0x00000004   PAD
-    0x20000070        -       0x00000400   Zero   RW          105    STACK               startup_stm32f10x_md.o
+    0x20000000   0x08000a74   0x0000000a   Data   RW          168    .data               uart_it.o
+    0x2000000a   0x08000a7e   0x00000002   PAD
+    0x2000000c   0x08000a80   0x00000004   Data   RW          606    .data               mc_w.l(stdout.o)
+
+
+    Execution Region ER_ZI (Exec base: 0x20000010, Load base: 0x08000a84, Size: 0x00000600, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000010        -       0x00000200   Zero   RW          167    .bss                uart_it.o
+    0x20000210        -       0x00000400   Zero   RW          112    STACK               startup_stm32f10x_md.o
 
 
 ==============================================================================
@@ -683,17 +707,17 @@ Image component sizes
 
          0          0          0          0          0         32   core_cm3.o
         50          0          0          0          0        423   delay.o
-       208         80          4          0          0     206671   main.o
+       212         80          4          0          0     206703   main.o
        320         28          0          0          0       1789   spi.o
         36          8        236          0       1024        768   startup_stm32f10x_md.o
        328         28          0          0          0       1897   system_stm32f10x.o
-       404         50          0          2        100      19084   uart_it.o
-       344         12          0          0          0       3873   w25q32.o
+       488         62          0         10        512      19715   uart_it.o
+       326          0          0          0          0       3869   w25q32.o
 
     ----------------------------------------------------------------------
-      1692        206        272          4       1128     234537   Object Totals
+      1764        206        272         12       1536     235196   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         2          0          0          2          4          0   (incl. Padding)
+         4          0          0          2          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -734,15 +758,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2332        236        272          8       1128     234141   Grand Totals
-      2332        236        272          8       1128     234141   ELF Image Totals
-      2332        236        272          8          0          0   ROM Totals
+      2404        236        272         16       1536     234748   Grand Totals
+      2404        236        272         16       1536     234748   ELF Image Totals
+      2404        236        272         16          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2604 (   2.54kB)
-    Total RW  Size (RW Data + ZI Data)              1136 (   1.11kB)
-    Total ROM Size (Code + RO Data + RW Data)       2612 (   2.55kB)
+    Total RO  Size (Code + RO Data)                 2676 (   2.61kB)
+    Total RW  Size (RW Data + ZI Data)              1552 (   1.52kB)
+    Total ROM Size (Code + RO Data + RW Data)       2692 (   2.63kB)
 
 ==============================================================================
 

@@ -3,9 +3,9 @@
 
 #include "stm32f10x.h"
 #include "stdio.h"
-  extern  uint8_t buffer[100];
- extern uint8_t size;
- extern uint8_t flag;
+#include "DEBUG.h"
+
+extern volatile uint8_t done;
 // 初始化
 void USART_Init(void);
 
@@ -21,6 +21,6 @@ void USART_SendString(uint8_t *str, uint8_t size);
 // // 接收字符串
 // void USART_ReceiveString(uint8_t buffer[], uint8_t *size);
 
-
+int out_cycle_buffer(uint8_t *byte);
 
 #endif

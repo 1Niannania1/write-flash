@@ -5,6 +5,7 @@
             "includePath": [
                 "c:\\Users\\年年\\Desktop\\stm32\\9.2 SPI 硬件\\start",
                 "c:\\Users\\年年\\Desktop\\stm32\\9.2 SPI 硬件\\diver",
+                "c:\\Users\\年年\\Desktop\\stm32\\9.2 SPI 硬件",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw",
                 "c:\\Users\\年年\\Desktop\\stm32\\9.2 SPI 硬件\\user"

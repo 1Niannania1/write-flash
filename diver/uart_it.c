@@ -1,8 +1,48 @@
 #include "uart_it.h"
 
-uint8_t buffer[100]={0};
-uint8_t size=0;
-uint8_t flag=0;
+
+// clycle receive buffer
+#define cycle_max 512
+uint8_t rx_buffer[cycle_max]={0};
+volatile uint16_t head=0,tail=0;
+uint16_t next=0;
+volatile uint8_t done=0;
+
+void in_cycle_buffer(uint8_t byte);
+
+void in_cycle_buffer(uint8_t byte)
+{
+next=(head+1)%cycle_max;
+if (next!=tail)
+{
+ rx_buffer[head]=byte;
+head=(head+1)%cycle_max;
+}
+
+else
+{
+    debug_printf("no new cycle space to write\n");
+}
+
+}
+int out_cycle_buffer(uint8_t *byte)
+{
+    
+ 
+    if (head!=tail)
+  {  *byte=rx_buffer[tail];
+  tail=(tail+1)%cycle_max;
+return 1;}
+  else{
+    return -1;
+  }
+  //head=tail，无数据
+
+
+    
+    
+
+}
 // 初始化
 void USART_Init(void)
 {
@@ -115,20 +155,22 @@ for (uint16_t i = 0; i < size; i++)
 // *size=i;
 // }
 
-
+uint16_t interrupt_count=0;
 void USART1_IRQHandler()
 {
 if(USART1->SR & USART_SR_RXNE)
 {
-buffer[size]=USART1->DR;
-size++;
+    interrupt_count++;
 
+in_cycle_buffer(USART1->DR);
 }
 if(USART1->SR & USART_SR_IDLE)
 {
+
+//取消IDLE标志位
 USART1->SR;
 USART1->DR;
-flag=1;
+done=1;
 
 }
 

@@ -27,7 +27,7 @@ while ((SPI_weapbyte(0xff))&0x01)
     count++;
     if (count==50000)
     {
-     printf("time out");
+  
      count=0;
      break;
         /* code */
@@ -109,6 +109,49 @@ for (uint32_t i = 0; i < size; i++)
 
 }
 SPI_stop();
+
+
+}
+
+void W25_write_32addrress(uint32_t data,uint8_t *senddata,uint16_t size)
+{
+W25_writeable();
+SPI_start();
+SPI_weapbyte(0x02);//发送写命令
+
+
+
+//分别发送写入地址
+SPI_weapbyte((data>>16)&0xff);
+SPI_weapbyte((data>>8)&0xff);
+SPI_weapbyte((data>>0)&0xff);
+for (uint16_t i = 0; i < size; i++)
+{
+  SPI_weapbyte(senddata[i]);
+
+}
+SPI_stop();
+W25_wait4nobusy();
+
+}
+
+void W25_eraser_32(uint32_t data)
+{
+//清除之前必须开启写使能
+W25_writeable();
+
+SPI_start();
+SPI_weapbyte(0x20);//发送擦除命令
+
+
+//分别发送擦除地址
+SPI_weapbyte((data>>16)&0xff);
+SPI_weapbyte((data>>8)&0xff);
+SPI_weapbyte((data>>0)&0xff);
+
+SPI_stop();
+
+W25_wait4nobusy();
 
 
 }
