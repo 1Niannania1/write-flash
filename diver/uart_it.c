@@ -21,7 +21,7 @@ head=(head+1)%cycle_max;
 
 else
 {
-    debug_printf("no new cycle space to write\n");
+   printf("no new cycle space to write\n");
 }
 
 }

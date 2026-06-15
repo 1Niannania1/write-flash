@@ -6,6 +6,7 @@
 #include "DEBUG.h"
 
 extern volatile uint8_t done;
+extern volatile uint16_t head,tail;
 // 初始化
 void USART_Init(void);
 

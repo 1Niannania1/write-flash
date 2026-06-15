@@ -113,6 +113,8 @@ SPI_stop();
 
 }
 
+//为什么这里size给的是uint16？--如果我给uint8，最大也就255，但是这个for就只能写0~254，也就是255个数据
+//但是大部分情况写一页都应该是256个数据，如果改成i<=255倒是可以写256个数据，但是size=255，实际却写入256个数据，我觉得不合适
 void W25_write_32addrress(uint32_t data,uint8_t *senddata,uint16_t size)
 {
 W25_writeable();

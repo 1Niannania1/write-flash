@@ -6,7 +6,7 @@
 
 uint8_t buffer[256];
 uint16_t index=0;
-uint8_t read_cheak_buffer[256];
+
 int  main()
  {
 uint32_t address=0;
@@ -14,9 +14,21 @@ W25_init();
 USART_Init();
 
 
+// W25_eraser(0,0);
+while (1)
+{
+//    uint8_t read_cheak_buffer[258]= {0};
+//   for (uint8_t i = 0; i < 128; i++)
+//   {
+//  for (uint8_t j = 0; j < 16; j++)
+//  {
+  
+// W25_eraser(i,j);
+//  }
 
+//   }
 
-
+W25_eraser(0,0);
 while(done==0) {
 
 
@@ -33,9 +45,9 @@ if (index==256)
    address+=256;
    if (address==0x400000)
    {
-   debug_printf("no flash space\n");
+  printf("no flash space\n");
    }
-   debug_printf("write one page\n");
+   printf("write one page\n");
    
 
 }
@@ -52,15 +64,20 @@ W25_write_32addrress(address,buffer,index);
 }
 
 
-W25_read(0x00,0x00,0x00,0x00,read_cheak_buffer,100);
-if (read_cheak_buffer[0])
-{
-  printf("over");
- printf("%s",read_cheak_buffer);
+W25_read(0x00,0x00,0x00,0x00,read_cheak_buffer,256);
+
+    debug_printf("Read");
+
+ printf("check_buffer=%s",read_cheak_buffer);
+
+done=0;  
+tail=0;
+head=0;
+index=0;
+address=0;
+
+
 }
-
-
-
 
 
  }

@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Jun 15 16:56:13 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Jun 15 21:56:39 2026
 <BR><P>
-<H3>Maximum Stack Usage =        168 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        320 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; W25_write &rArr; W25_writeable &rArr; SPI_stop
+main &rArr; W25_read &rArr; SPI_stop
 <P>
 <H3>
 Mutually Recursive functions
@@ -81,7 +81,7 @@ Function Pointers
  <LI><a href="#[5]">UsageFault_Handler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[a]">WWDG_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[37]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_stm32f10x_md.o(.text)
- <LI><a href="#[38]">fputc</a> from uart_it.o(i.fputc) referenced from printf3.o(i.__0printf$3)
+ <LI><a href="#[38]">fputc</a> from uart_it.o(i.fputc) referenced from printf2.o(i.__0printf$2)
  <LI><a href="#[35]">main</a> from main.o(i.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
 <P>
@@ -319,7 +319,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[52]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<P><STRONG><a name="[53]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -329,19 +329,13 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[5e]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-
-<P><STRONG><a name="[50]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
-</UL>
-
 <P><STRONG><a name="[3b]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[5f]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[5e]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[4b]"></a>SPI_init</STRONG> (Thumb, 204 bytes, Stack size 0 bytes, spi.o(i.SPI_init))
 <BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_init
@@ -354,7 +348,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_writeable
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_wait4nobusy
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write_32addrress
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_read
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_eraser
 </UL>
@@ -366,7 +360,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_writeable
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_wait4nobusy
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write_32addrress
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_read
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_eraser
 </UL>
@@ -374,7 +368,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>SPI_weapbyte</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, spi.o(i.SPI_weapbyte))
 <BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_writeable
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_wait4nobusy
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write_32addrress
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_read
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_eraser
 </UL>
@@ -386,20 +380,20 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(.text)
 </UL>
-<P><STRONG><a name="[2f]"></a>USART1_IRQHandler</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, uart_it.o(i.USART1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = USART1_IRQHandler
+<P><STRONG><a name="[2f]"></a>USART1_IRQHandler</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, uart_it.o(i.USART1_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = USART1_IRQHandler &rArr; in_cycle_buffer &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;in_cycle_buffer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[53]"></a>USART_Init</STRONG> (Thumb, 254 bytes, Stack size 8 bytes, uart_it.o(i.USART_Init))
+<P><STRONG><a name="[52]"></a>USART_Init</STRONG> (Thumb, 254 bytes, Stack size 8 bytes, uart_it.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[51]"></a>USART_SendChar</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, uart_it.o(i.USART_SendChar))
+<P><STRONG><a name="[50]"></a>USART_SendChar</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, uart_it.o(i.USART_SendChar))
 <BR><BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
 
@@ -440,12 +434,12 @@ Global Symbols
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_stop
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_start
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write
+<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write_32addrress
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_eraser
 </UL>
 
-<P><STRONG><a name="[4d]"></a>W25_write</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, w25q32.o(i.W25_write))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = W25_write &rArr; W25_writeable &rArr; SPI_stop
+<P><STRONG><a name="[4d]"></a>W25_write_32addrress</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, w25q32.o(i.W25_write_32addrress))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = W25_write_32addrress &rArr; W25_writeable &rArr; SPI_stop
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_writeable
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_wait4nobusy
@@ -463,27 +457,28 @@ Global Symbols
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_stop
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_start
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write
+<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write_32addrress
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_eraser
 </UL>
 
-<P><STRONG><a name="[4e]"></a>__0printf$3</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
+<P><STRONG><a name="[4e]"></a>__0printf$2</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf2.o(i.__0printf$2), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[60]"></a>__1printf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
+<P><STRONG><a name="[5f]"></a>__1printf$2</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf2.o(i.__0printf$2), UNUSED)
 
-<P><STRONG><a name="[54]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3))
+<P><STRONG><a name="[51]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf2.o(i.__0printf$2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;in_cycle_buffer
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[61]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[60]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[62]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[61]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[63]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[62]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[41]"></a>delay_us</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, delay.o(i.delay_us))
 <BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_stop
@@ -493,27 +488,36 @@ Global Symbols
 <P><STRONG><a name="[38]"></a>fputc</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart_it.o(i.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendChar
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendChar
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> printf3.o(i.__0printf$3)
+<BR>[Address Reference Count : 1]<UL><LI> printf2.o(i.__0printf$2)
 </UL>
-<P><STRONG><a name="[45]"></a>in_cycle_buffer</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, uart_it.o(i.in_cycle_buffer))
-<BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
+<P><STRONG><a name="[45]"></a>in_cycle_buffer</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, uart_it.o(i.in_cycle_buffer))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = in_cycle_buffer &rArr; __2printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[35]"></a>main</STRONG> (Thumb, 132 bytes, Stack size 112 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = main &rArr; W25_write &rArr; W25_writeable &rArr; SPI_stop
+<P><STRONG><a name="[35]"></a>main</STRONG> (Thumb, 190 bytes, Stack size 272 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = main &rArr; W25_read &rArr; SPI_stop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;out_cycle_buffer
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_write_32addrress
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_read
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;W25_eraser
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
-</UL><P>
+</UL>
+<P><STRONG><a name="[54]"></a>out_cycle_buffer</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, uart_it.o(i.out_cycle_buffer))
+<BR><BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+<P>
 <H3>
 Local Symbols
 </H3>
@@ -531,10 +535,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 
-<P><STRONG><a name="[4f]"></a>_printf_core</STRONG> (Thumb, 436 bytes, Stack size 96 bytes, printf3.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$3
+<P><STRONG><a name="[4f]"></a>_printf_core</STRONG> (Thumb, 214 bytes, Stack size 40 bytes, printf2.o(i._printf_core), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$2
 </UL>
 <P>
 <H3>
