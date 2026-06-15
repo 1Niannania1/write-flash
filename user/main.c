@@ -17,7 +17,7 @@ USART_Init();
 // W25_eraser(0,0);
 while (1)
 {
-//    uint8_t read_cheak_buffer[258]= {0};
+   uint8_t read_cheak_buffer[258]= {0};
 //   for (uint8_t i = 0; i < 128; i++)
 //   {
 //  for (uint8_t j = 0; j < 16; j++)
