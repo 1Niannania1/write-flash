@@ -19,19 +19,19 @@ void W25_wait4nobusy(void)
  
 SPI_start();
  (SPI_weapbyte(0x05)); 
-uint16_t count=0;
+// uint16_t count=0;
 
 while ((SPI_weapbyte(0xff))&0x01)
 {
  
-    count++;
-    if (count==50000)
-    {
+    // count++;
+    // if (count==50000)
+    // {
   
-     count=0;
-     break;
-        /* code */
-    }
+    //  count=0;
+    //  break;
+    //     /* code */
+    // }
     
 }
 SPI_stop();
@@ -137,23 +137,16 @@ W25_wait4nobusy();
 
 }
 
-void W25_eraser_32(uint32_t data)
+void W25_eraser_all()
 {
-//清除之前必须开启写使能
 W25_writeable();
 
 SPI_start();
-SPI_weapbyte(0x20);//发送擦除命令
-
-
-//分别发送擦除地址
-SPI_weapbyte((data>>16)&0xff);
-SPI_weapbyte((data>>8)&0xff);
-SPI_weapbyte((data>>0)&0xff);
-
+SPI_weapbyte(0xC7);//发送全片擦除命令       
 SPI_stop();
 
 W25_wait4nobusy();
 
 
 }
+

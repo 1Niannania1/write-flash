@@ -2,7 +2,7 @@
 
 
 // clycle receive buffer
-#define cycle_max 1024
+#define cycle_max 512
 uint8_t rx_buffer[cycle_max]={0};
 volatile uint16_t head=0,tail=0;
 uint16_t next=0;
