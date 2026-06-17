@@ -11,4 +11,4 @@ keil+vscode
 
 在sscom选择256字节延时10ms
 
-在串口发送bin文件
+在串口发送bin文件 
