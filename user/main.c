@@ -3,7 +3,7 @@
 #include "W25Q32.h"
 #include "DEBUG.h"
 
-//用GBK编码导致很多字符显示错误，也有可能是校验的问题
+//没有加校验重发导致仍然有一点乱码
 
 
 //4MB 容量共有 16,384 页。
@@ -12,7 +12,7 @@
 int  main()
  {
 uint8_t buffer[256];
-volatile uint16_t index=0;
+uint16_t index=0;
 
 uint16_t page[5]={0};
 uint32_t address=0;
@@ -22,7 +22,7 @@ USART_Init();
 
 
 W25_eraser_all();//全片擦除
-printf("ready\r\n");  //等待擦除完成
+printf("ready\r\n");  //必须等待擦除完成，不要打断
 
 //必须是五位数，高位可用0填充
 printf("page write count (must be 5bit):");

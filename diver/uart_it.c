@@ -1,5 +1,6 @@
 #include "uart_it.h"
 
+
 //在主循环和中断中共用的变量必须声明为volatile，防止优化
 // clycle receive buffer
 #define cycle_max 512
