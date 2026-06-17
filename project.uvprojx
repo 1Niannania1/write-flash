@@ -107,7 +107,7 @@
           <CustomArgument></CustomArgument>
           <IncludeLibraryModules></IncludeLibraryModules>
           <ComprImg>1</ComprImg>
-        </CommonProperty>
+        </CommonProperty> 
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
           <SimDllArguments> -REMAP</SimDllArguments>
