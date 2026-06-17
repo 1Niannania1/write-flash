@@ -8,7 +8,7 @@ uint8_t rx_buffer[cycle_max]={0};
 volatile uint16_t head=0,tail=0;
 uint16_t next=0;
 volatile uint8_t done=0;
-
+ 
 //进队函数
 void in_cycle_buffer(uint8_t byte);
 
