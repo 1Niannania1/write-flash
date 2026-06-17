@@ -3,7 +3,7 @@
 #include "W25Q32.h"
 #include "DEBUG.h"
 
-
+//用GBK编码导致很多字符显示错误，也有可能是校验的问题
 
 
 //4MB 容量共有 16,384 页。
@@ -14,14 +14,15 @@ uint16_t index=0;
 
 uint16_t page[5]={0};
 uint32_t address=0;
-uint8_t read_cheak_buffer[257]= {0};  
+uint8_t read_cheak_buffer[257]= {0};  //多一个数据位0，确保不会越界读取
 W25_init();
 USART_Init();
 
 
 W25_eraser_all();//全片擦除
-printf("ready\r\n");  
+printf("ready\r\n");  //等待擦除完成
 
+//必须是五位数，高位可用0填充
 printf("page write count (must be 5bit):");
 
 //得到主机发送的count
@@ -32,10 +33,12 @@ for (int i = 0; i < 5; i++)
         // 等数据
     }
 }
+
+//重新置位
 done=0;
 
 
-
+//串口发送的是字符而非数字，计算出页数
 uint16_t page_count=0;
 
 for (uint8_t i = 0; i < 5; i++)
@@ -49,19 +52,22 @@ for (uint8_t i = 0; i < 5; i++)
 printf("page write=%d\n",page_count);
 printf("plese transmit\n");
 
+//所有页写入大循环，一共写入page_Count次
 while (page_count)
 {
    page_count--;
    
 
-
-while((done==0)||(tail!=head)) {
-
-
-if (out_cycle_buffer(&buffer[index])==1)
+//页写循环
+while((done==0)||(tail!=head)) 
+{
+while (out_cycle_buffer(&buffer[index])==1)
 {
   index++;
 }
+//等待数据
+
+
 
 if (index==256)
 {
@@ -74,14 +80,16 @@ if (index==256)
   printf("no flash space\n");
    }
    printf("write one page\n");
-   
 
 }
 
-    
-
-
 }
+//done=1,且当前缓冲区数据全部读出
+
+
+
+
+//最后一页不满一页的字节写入
 if (index!=0)
 {
 
@@ -92,14 +100,11 @@ break;
 
 //  多次写入
 done=0;  
-// tail=0;
-// head=0;
-index=0;
-// address=0;
-
 }
 
-debug_printf(" page write over\n");
+
+//check
+debug_printf(" page write all over\n");
 W25_read(0x00,0x00,0x20,0x00,read_cheak_buffer,256);
  printf("check_buffer=%s",read_cheak_buffer);
 

@@ -1,6 +1,6 @@
 #include "uart_it.h"
 
-
+//在主循环和中断中共用的变量必须声明为volatile，防止优化
 // clycle receive buffer
 #define cycle_max 512
 uint8_t rx_buffer[cycle_max]={0};
@@ -8,10 +8,13 @@ volatile uint16_t head=0,tail=0;
 uint16_t next=0;
 volatile uint8_t done=0;
 
+//进队函数
 void in_cycle_buffer(uint8_t byte);
 
+//进队函数
 void in_cycle_buffer(uint8_t byte)
 {
+  //next——牺牲一个可写的位置来区分是满还是空，next实际上是下下个，是当前还没写入的空间的下一个
 next=(head+1)%cycle_max;
 if (next!=tail)
 {
@@ -19,12 +22,17 @@ if (next!=tail)
 head=(head+1)%cycle_max;
 }
 
+//next=tail，缓冲区为满
 else
 {
+
    printf("no new cycle space to write\n");
 }
 
 }
+
+
+//出队函数
 int out_cycle_buffer(uint8_t *byte)
 {
     
@@ -33,14 +41,14 @@ int out_cycle_buffer(uint8_t *byte)
   {  *byte=rx_buffer[tail];
   tail=(tail+1)%cycle_max;
 return 1;}
+
+  //head=tail，缓冲区为空，无数据
   else{
     return -1;
   }
-  //head=tail，无数据
 
 
-    
-    
+
 
 }
 // 初始化
