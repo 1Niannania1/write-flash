@@ -1,6 +1,6 @@
 import os
 import sys
-
+ 
 def detect_encoding(file_path):
     """尝试用常见编码读取文件，返回文本内容和实际编码"""
     encodings = ['utf-8', 'gbk', 'gb2312', 'gb18030', 'latin-1']
@@ -76,4 +76,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
